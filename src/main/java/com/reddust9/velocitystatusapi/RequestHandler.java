@@ -126,8 +126,23 @@ public class RequestHandler {
             byte[] response = responseText.getBytes(Charset.defaultCharset());
 
             Headers headers = exchange.getResponseHeaders();
+
+            // add CORS headers
+            // https://stackoverflow.com/a/43044139
+            headers.add("Access-Control-Allow-Origin", "*");
+
+            if (exchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                headers.add("Access-Control-Allow-Methods", "GET, OPTIONS");
+                headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization");
+                exchange.sendResponseHeaders(204, -1);
+                return;
+            }
+
+            // add response headers
             headers.add("Content-Type", "application/json");
             exchange.sendResponseHeaders(200, response.length);
+
+            // send body
             OutputStream stream = exchange.getResponseBody();
             stream.write(response);
             stream.close();

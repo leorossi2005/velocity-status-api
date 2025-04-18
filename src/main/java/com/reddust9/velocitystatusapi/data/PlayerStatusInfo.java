@@ -4,5 +4,6 @@ public class PlayerStatusInfo {
     public String name;
     public String uuid;
     public String client;
-    public long ping;
+    public String server;
+    public Long ping;
 }

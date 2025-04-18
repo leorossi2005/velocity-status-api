@@ -1,0 +1,37 @@
+# Config version. Don't touch
+configVersion: "1.0"
+
+# Network settings
+serverBind: "0.0.0.0"
+serverPort: 8081
+
+# This section let you customize what the plugin gives you in the json/text response
+# Proxy info
+proxy:
+  serverUptime: true
+  version: true
+  motd: true
+  icon: true
+  maxPlayers: true
+  onlinePlayers: true
+  connectedPlayers: true
+  connectedServers: true
+
+# Servers info
+server:
+  isOnline: true
+  serverName: true
+  version: true
+  motd: true
+  icon: true
+  maxPlayers: true
+  onlinePlayers: true
+  connectedPlayers: true
+
+# Players info
+player:
+  name: true
+  uuid: true
+  client: true
+  server: true
+  ping: true
